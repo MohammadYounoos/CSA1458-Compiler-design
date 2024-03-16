@@ -1,0 +1,17 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+^[aeiouAEIOU][a-zA-Z0-9_]*   printf("Valid string starting with a vowel: %s\n", yytext);
+.                             printf("Invalid string\n");
+%%
+
+int yywrap() {
+    return 1;
+}
+
+int main() {
+    yylex();
+    return 0;
+}
