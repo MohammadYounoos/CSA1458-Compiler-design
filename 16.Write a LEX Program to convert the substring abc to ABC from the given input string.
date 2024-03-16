@@ -1,0 +1,13 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+abc     printf("ABC"); // Replace "abc" with "ABC"
+.       ECHO;          // Echo all other characters as is
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
